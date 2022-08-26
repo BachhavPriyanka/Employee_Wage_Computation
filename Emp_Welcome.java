@@ -5,41 +5,44 @@ package employeeWage;
 		public static void main(String[] args) {
 			System.out.println("Welcome to Employee Wage");
 			Emp_Welcome obj= new Emp_Welcome();
-			obj.Wage_For_Month();
+			obj.Working_Hours();
 		}
 		
-		public void Wage_For_Month() {
+		public void Working_Hours() {
 			  final int PART_TIME = 1;
 		        final int FULL_TIME = 2;
-		        final int Wage_Per_Hr = 20;
-		        final int Working_Days = 20;
+		        final int WAGE_Per_Hr = 20;
+		        final int Max_Working_Days = 20;
+		        final int Max_Working_Hrs = 100;
 
 		        int totalWage = 0;
-		        for(int day=1;day<=Working_Days;day++)
+		        int workingHrs = 0;
+		        System.out.printf("%5s     %5s     %5s     %5s\n", "Day", "Workinghrs", "Wage", "Total working hrs");
+		        for (int day = 1, totalWorkingHrs = 0; day <= Max_Working_Days
+		                && totalWorkingHrs < Max_Working_Hrs; day++, totalWorkingHrs += workingHrs)
 		        {
 
 		            int empType = (int) (Math.random() * 100) % 3;
-		            int workingHours = 0;
 		            switch (empType)
 		            {
 		                case FULL_TIME:
-		                    workingHours = 8;
+		                    workingHrs = 8;
 		                    break;
-
 		                case PART_TIME:
-		                    workingHours = 4;
+		                    workingHrs = 4;
 		                    break;
-
 		                default:
+		                    workingHrs = 0;
+		                    break;
 		            }
-
-		            int wage = workingHours * Wage_Per_Hr;
-		            System.out.println("Day " + day + " Wage is : " + wage);
+		            int wage = workingHrs * WAGE_Per_Hr;
 		            totalWage += wage;
+		            System.out.printf("%5d       %5d      %5d      %5d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
 
 		        }
-		           System.out.println("Total wage for a month is " + totalWage);
+		        System.out.println("Total wage for a month is " + totalWage);
 		    }
 	}
+	
 
 
