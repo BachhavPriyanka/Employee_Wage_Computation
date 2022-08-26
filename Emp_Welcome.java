@@ -5,10 +5,10 @@ package employeeWage;
 		public static void main(String[] args) {
 			System.out.println("Welcome to Employee Wage");
 			Emp_Welcome obj= new Emp_Welcome();
-			obj.Switch_case();
+			obj.Wage_For_Month();
 		}
 		
-		public void Switch_case() {
+		public void Wage_For_Month() {
 			  final int PART_TIME = 1;
 		        final int FULL_TIME = 2;
 		        final int Wage_Per_Hr = 20;
@@ -40,7 +40,6 @@ package employeeWage;
 		        }
 		           System.out.println("Total wage for a month is " + totalWage);
 		    }
-		
 	}
 
 
